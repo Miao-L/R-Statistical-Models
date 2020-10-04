@@ -1,7 +1,8 @@
-#Credit: An Introduction to Statistical Learning
-#Class note from the calss
-#From book http://faculty.marshall.usc.edu/gareth-james/ISL/
-# Chapter 3 Lab: Linear Regression
+# Linear Regression
+# Check correlation
+# Model - check Interaction effects
+
+
 
 library(MASS)
 #Need to install package first
@@ -28,7 +29,7 @@ lm.fit=lm(medv~lstat)
 lm.fit=lm(medv~lstat,data=Boston)
 #This will print out Coefficients
 lm.fit
-#Summary will print out more detail
+#Summary will print out more details
 summary(lm.fit)
 
 abline(lm.fit)
@@ -70,15 +71,15 @@ summary (fit2)
 # Interaction Terms
 summary(lm(medv~lstat*age,data=Boston))
 
-
 # Fit all but one
 # Results: notice "age" was significant when it was fit with "lstat" but now no longer significant
-# The reason "age" is no longer significant is because all other predictors are highly corrected to "age" 
+# The reason "age" is no longer significant is because all other predictors are highly corrected to the "age" 
 fit3=lm(medv~., Boston)
 summary(fit3)
 par(mfrow=c(2,2))
-# Plot to check the results
-# First chart: Residuals vs Fitted values; we are looking for non-linearity 
+# Plot to check homogeneous
+# Top left chart: Residuals vs Fitted values; we are looking for non-linearity which is one flat line across the X-axis
+# If the population is NOT homogeneous, check my code for "Check for heteroscedasticity"
 plot(fit3)
 
 
@@ -140,5 +141,7 @@ LoadLibraries=function(){
  }
 LoadLibraries
 LoadLibraries()
+
+#Credit: An Introduction to Statistical Learning
 
 
